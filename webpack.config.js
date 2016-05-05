@@ -1,5 +1,5 @@
 module.exports = {
-  entry: ['./private/main.js'],
+  entry: ['babel-polyfill', './private/main.js'],
   output: {
     path: './public/assets',
     filename: 'main.js'

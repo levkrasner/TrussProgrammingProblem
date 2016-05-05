@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: ['./private/main.js'],
+  entry: ['babel-polyfill', './private/main.js'],
   output: {
     path: './public/assets',
     filename: 'main.js'

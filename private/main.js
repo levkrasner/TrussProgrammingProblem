@@ -1,8 +1,17 @@
-// External dependancies
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-// Our root level react component
-const AppComponent = require('./AppComponent.js');
+import { App } from './App';
+import { counter } from './counter';
 
-ReactDOM.render(<AppComponent />, document.getElementById('react-root'));
+// Store:
+let store = createStore(counter);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('react-root')
+);
