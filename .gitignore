@@ -1,18 +1,9 @@
-_Store
-.svn
+.DS_Store
 *~
 *.swp
 *.rbc
-local
 *.pyc
 .ropeproject
 
-env/
-*netrwhist
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-
 node_modules/
+npm-debug.log
