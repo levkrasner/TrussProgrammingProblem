@@ -1,12 +1,8 @@
-var React = require('react');
-module.exports = React.createClass({
-  render:  () => {
-    return (
-      <dev>
-        <h1>Hello world! This is webpack!</h1>
-        <h2>watched file!</h2>
-        <h2>Babel lets us use es2015 and beyond!</h2>
-      </dev>
-    );
-  }
-});
+const React = require('react');
+module.exports = () => (
+  <dev>
+  <h1>Hello world!</h1>
+  <h3>watched file!</h3>
+  <h3>Babel lets us use es3015 and beyond!</h3>
+  </dev>
+);

@@ -1,6 +1,15 @@
 // this was recommended by facebook "babel-preset-es2015", for the presets
 {
   "presets": ["react", "es2015"], 
-  "plugins": ["transform-object-assign"],
-  "ignore": [ ]
+    "plugins": [
+      "transform-es2015-modules-commonjs",
+      "transform-member-expression-literals",
+      "transform-merge-sibling-variables",
+      "transform-minify-booleans",
+      "transform-object-assign",
+      "transform-object-rest-spread",
+      "transform-property-literals",
+      "transform-simplify-comparison-operators"
+    ],
+    "ignore": [ ]
 }
