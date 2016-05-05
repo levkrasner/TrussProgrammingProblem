@@ -1,0 +1,18 @@
+_Store
+.svn
+*~
+*.swp
+*.rbc
+local
+*.pyc
+.ropeproject
+
+env/
+*netrwhist
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+node_modules/
