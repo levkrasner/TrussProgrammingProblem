@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // Connected Component:
-export var App = connect(
+export const App = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Counter);
