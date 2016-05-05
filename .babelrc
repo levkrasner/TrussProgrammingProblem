@@ -1,0 +1,6 @@
+// this was recommended by facebook "babel-preset-es2015", for the presets
+{
+  "presets": ["react", "es2015"], 
+  "plugins": ["transform-object-assign"],
+  "ignore": [ ]
+}
