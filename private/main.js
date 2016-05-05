@@ -1,27 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Well, } from 'react-bootstrap';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import { TenantForm } from './TenantForm';
+import { LeaseFormConnector } from './LeaseForm';
+import { LeaseTable } from './LeaseTable';
 
-import { Table, Tr } from 'Reactable';
+import { createLease, leases } from './Lease';
+
+const leaseStore = createStore(leases);
+
+// prepopulate the table
+const sampleData = [
+  { name: 'Griffin Smith', address: 'Somewhere', phoneNumber: '555-463-3511', dateTime: '2016-06-06', },
+  { name: 'Joe Smith', address: 'Somewhere else', phoneNumber: '555-468-1111', dateTime: '2016-07-01', },
+  { name: 'Amy Smith', address: 'No where', phoneNumber: '555-418-3213', dateTime: '2016-07-18', },
+];
+sampleData.forEach(
+  (datum) => leaseStore.dispatch(createLease(datum))
+);
+
 
 ReactDOM.render(
   <div style={{ padding: '10px' }}>
-    <h2>A Tenant Form!</h2>
-    <TenantForm />
-    <Well>
-      <Table
-        className="table"
-        data={[
-          { Name: 'Griffin Smith', Address: 'Somewhere', 'Phone Number': '555-463-3511', 'Move In Date': '2016-06-06', },
-          { Name: 'Joe Smith', Address: 'Somewhere else', 'Phone Number': '555-468-1111', 'Move In Date': '2016-07-01', },
-          { Name: 'Amy Smith', Address: 'No where', 'Phone Number': '555-418-3213', 'Move In Date': '2016-07-18', },
-        ]}
-        sortable={[ 'Name', 'Address', 'Phone Number', 'Move In Date', ]}
-      />
-    </Well>
+    <h2>A Lease Tracking Form!</h2>
+
+    <LeaseFormConnector dispatch={leaseStore.dispatch} />
+
+    <h2>A Table of Leases!</h2>
+    <Provider store={leaseStore}>
+      <LeaseTable />
+    </Provider>
   </div>,
   document.getElementById('react-root')
 );

@@ -18,7 +18,7 @@ class Counter extends React.Component {
 
 
 // Map Redux state to component props
-function mapStateToProps(state)  {
+function mapStateToProps(state) {
   return {
     value: state.count
   };
@@ -27,7 +27,7 @@ function mapStateToProps(state)  {
 // Map Redux actions to component props
 function mapDispatchToProps(dispatch) {
   return {
-    onIncreaseClick: () => dispatch(increaseAction)
+    onIncreaseClick: () => dispatch(increaseAction),
   };
 }
 

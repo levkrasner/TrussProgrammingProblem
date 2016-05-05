@@ -4,50 +4,40 @@ import { Grid, Row, Col, Button, Well, } from 'react-bootstrap';
 import { TenantTextField } from './TenantTextField';
 import { MoveInDateField } from './MoveInDateField';
 
+import { createLease, setDateTime, setName, setAddress, setPhoneNumber, } from './Lease';
+
 export const TenantForm = React.createClass({
-  getInitialState() {
-    return {
-      dateTime: "2016-06-05",
-      name: '',
-      address: '',
-      phoneNumber: '',
-    };
-  },
-
-  handleDateChange(dateTime) {
-    return this.setState({ dateTime });
-  },
-
   render() {
-    const { dateTime, format, inputFormat, viewMode } = this.state; 
-    const { name, address, phoneNumber, } = this.state;
+    const { dateTime, name, address, phoneNumber, } = this.props;
+    const { handleDateChange, handleNameChange, handleAddressChange, handlePhoneNumberChange, } = this.props;
+
     return (
       <Well>
         <Grid fluid componentClass='form'>
           <TenantTextField 
-            onChange={(e) => this.setState({ name: e.target.value })}
+            onChange={handleNameChange}
             labelText={'Tenant Name'}
             value={name}
             controlId={'name'}
           />
 
           <TenantTextField 
-            onChange={(e) => this.setState({ address: e.target.value })}
+            onChange={handleAddressChange}
             labelText={'Tenant Address'}
             value={address}
             controlId={'address'}
           />
 
           <TenantTextField 
-            onChange={(e) => this.setState({ phoneNumber: e.target.value })}
+            onChange={handlePhoneNumberChange}
             labelText={'Tenant Phone Number'}
             value={phoneNumber}
             controlId={'phoneNumber'}
           />
 
-          <MoveInDateField dateTime={dateTime} onChange={this.handleDateChange} />
+          <MoveInDateField dateTime={dateTime} onChange={handleDateChange} />
 
-          <Row> <Button type="submit"> Save </Button> </Row>
+          <Row><Button onClick={this.props.handleSave}> Save </Button></Row>
 
         </Grid>
       </Well>
