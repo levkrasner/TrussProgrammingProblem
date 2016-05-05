@@ -2,7 +2,7 @@ module.exports = {
   entry: ['./private/main.js'],
   output: {
     path: './public/assets',
-    filename: 'bundle.js'
+    filename: 'main.js'
   },
   module: {
     loaders: [

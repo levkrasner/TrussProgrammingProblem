@@ -5,7 +5,7 @@
   "description": "A demonstration of Dan's desired frontend stack",
   "scripts": {
     "dev": "NODE_ENV=development webpack -d --watch & (cd public && python -m SimpleHTTPServer)",
-    "deploy": "NODE_ENV=production webpack -p"
+    "prod": "NODE_ENV=production webpack -p"
   },
   "author": "Dan Thomson",
   "devDependencies": {
