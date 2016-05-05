@@ -15,7 +15,6 @@ export function MoveInDateField(props) {
     <Row>
       <FormGroup controlId="moveInDate">
         <Col xs={12} sm={2} componentClass='ControlLabel'>Move in Date</Col>
-
         <Col xs={12} sm={10}>
           <DateTimeField
             dateTime={dateTime}

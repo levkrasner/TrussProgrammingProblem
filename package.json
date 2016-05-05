@@ -40,10 +40,12 @@
     "react-bootstrap-datetimepicker": "0.0.22",
     "react-dom": "^15.0.2",
     "react-redux": "^4.4.5",
+    "reactable": "^0.13.0",
     "redux": "^3.5.2",
     "redux-devtools": "^3.2.0",
     "rimraf": "^2.4.3",
     "uglify-js": "^2.6.2",
+    "uuid-js": "^0.7.5",
     "webpack": "^1.13.0"
   },
   "dependencies": {
