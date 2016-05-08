@@ -8,7 +8,7 @@ export function MoveInDateField(props) {
   const { dateTime, onChange, } = props;
 
   const format = "YYYY-MM-DD";
-  const inputFormat = "DD/MM/YYYY";
+  const inputFormat = "MM/DD/YYYY";
   const viewMode = "date";
   
   return (
