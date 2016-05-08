@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import { LeaseFormConnector } from './LeaseForm';
-import { LeaseTable } from './LeaseTable';
+import { LeaseTable } from './table/LeaseTable';
 
 import { createLease, leases } from './Lease';
 
