@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { TenantForm } from './form/TenantForm';
 import { TenantTable } from './table/TenantTable';
 import { tenants, addTenant } from './models/Tenants';
-import { tenant } from './models/Tenant';
+import { tenant, setTenant } from './models/Tenant';
 
 import { prePopulate } from './sampleData';
 
@@ -14,6 +14,7 @@ const tenantsStore = createStore(tenants);
 const tenantStore = createStore(tenant);
 
 const saveTenantToTable = bindActionCreators(addTenant, tenantsStore.dispatch);
+const editTenant = bindActionCreators(setTenant, tenantStore.dispatch);
 
 prePopulate(tenantsStore.dispatch);
 
@@ -28,7 +29,7 @@ ReactDOM.render(
 
     <h2>A Table of Tenants!</h2>
     <Provider store={tenantsStore}>
-      <TenantTable />
+      <TenantTable editTenant={editTenant} />
     </Provider>
 
   </div>,

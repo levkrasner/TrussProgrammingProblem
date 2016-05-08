@@ -87,7 +87,7 @@ class unconnectedTenantForm extends React.Component {
 function mapStateToProps(state) {
   return { tenant: state };
 }
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   // the dispatcher of a single tenant store
   return {
     handleDateChange: (dateTime) => dispatch(setDateTime(dateTime)),
@@ -102,5 +102,4 @@ export const TenantForm = connect(
   mapStateToProps,
   mapDispatchToProps
 )(unconnectedTenantForm);
-
 

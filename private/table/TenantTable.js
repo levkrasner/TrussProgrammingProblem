@@ -5,6 +5,10 @@ import { Well, } from 'react-bootstrap';
 import { Table, Tr } from 'Reactable';
 
 class TenantTableUnconnected extends React.Component {
+  // TODO:
+  // Rewrite with react-bootstrap's table
+  // Then handle doubleclick by removing the clicked record and passing the tenant to editTenant
+
   render() {
     return (
       <Well>
@@ -23,7 +27,7 @@ function mapStateToProps(state)  {
     data: state.map(function(tenantObj) {
       return {
         'Name': tenantObj.name,
-        Address: tenantObj.address,
+        'Address': tenantObj.address,
         'Phone Number': tenantObj.phoneNumber,
         'Move In Date': tenantObj.dateTime
       };
