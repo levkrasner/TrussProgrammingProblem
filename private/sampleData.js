@@ -1,4 +1,4 @@
-import { addTenant } from './models/actionCreators';
+import { addTenant } from './models/Tenants';
 
 const sampleData = [
   { uuid: 1, name: 'Griffin Smith', address: 'Somewhere', phoneNumber: '555-463-3511', dateTime: '2016-06-06', },

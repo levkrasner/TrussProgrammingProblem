@@ -1,27 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
-import { TenantFormConnector } from './form/TenantFormConnector';
+import { TenantForm } from './form/TenantForm';
 import { TenantTable } from './table/TenantTable';
-import { tenants } from './models/Tenant';
+import { tenants, addTenant } from './models/Tenants';
+import { tenant } from './models/Tenant';
 
 import { prePopulate } from './sampleData';
 
-const tenantStore = createStore(tenants);
+const tenantsStore = createStore(tenants);
+const tenantStore = createStore(tenant);
 
-prePopulate(tenantStore.dispatch);
+const saveTenantToTable = bindActionCreators(addTenant, tenantsStore.dispatch);
+
+prePopulate(tenantsStore.dispatch);
+
 
 ReactDOM.render(
   <div style={{ padding: '10px' }}>
 
     <h2>A Tenant Tracking Form!</h2>
-    <TenantFormConnector dispatch={tenantStore.dispatch} />
+    <Provider store={tenantStore}>
+      <TenantForm saveTenantToTable={saveTenantToTable} />
+    </Provider>
 
     <h2>A Table of Tenants!</h2>
-
-    <Provider store={tenantStore}>
+    <Provider store={tenantsStore}>
       <TenantTable />
     </Provider>
 
