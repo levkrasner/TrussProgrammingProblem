@@ -17,7 +17,14 @@ export function TenantTextField(props) {
     <Row>
       <FormGroup controlId={controlId}>
         <Col xs={12} sm={2} componentClass='ControlLabel'>{labelText}</Col>
-        <Col xs={12} sm={10}><FormControl type="text" value={value} onChange={onChange} /></Col>
+        <Col xs={12} sm={10}>
+          <FormControl
+            type="text"
+            placeholder={placeholder ? placeholder : `Enter ${labelText}`}
+            value={value}
+            onChange={onChange}
+          />
+        </Col>
       </FormGroup>
     </Row>
   );
