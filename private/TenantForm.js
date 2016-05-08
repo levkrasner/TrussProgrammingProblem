@@ -36,8 +36,7 @@ export const TenantForm = React.createClass({
           />
 
           <MoveInDateField dateTime={dateTime} onChange={handleDateChange} />
-
-          <Row><Button onClick={this.props.handleSave}> Save </Button></Row>
+          <Row className="save_btn"><Col xs={12}><Button onClick={this.props.handleSave}> Save </Button></Col></Row>
 
         </Grid>
       </Well>
