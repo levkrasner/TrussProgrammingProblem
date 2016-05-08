@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { TenantFormConnector } from './form/TenantFormConnector';
 import { TenantTable } from './table/TenantTable';
 
-import { createTenant, tenants } from './Tenant';
+import { createTenant, tenants } from './models/Tenant';
 
 const tenantStore = createStore(tenants);
 

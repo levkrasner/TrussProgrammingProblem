@@ -2,7 +2,7 @@ import React from 'react'
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-import { createTenant, tenant, setDateTime, setName, setAddress, setPhoneNumber } from '../Tenant';
+import { createTenant, tenant, setDateTime, setName, setAddress, setPhoneNumber } from '../models/Tenant';
 import { TenantForm } from './TenantForm';
 
 function mapStateToProps(state) {
