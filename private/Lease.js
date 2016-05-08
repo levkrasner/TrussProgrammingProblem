@@ -29,14 +29,14 @@ export function setPhoneNumber(phoneNumber) {
   };
 }
 
-export function createLease(lease) {
+export function createTenant(tenant) {
   return {
-    type: 'CREATE_LEASE',
-    payload: { ...lease }
+    type: 'CREATE_TENANT',
+    payload: { ...tenant }
   }
 }
 
-export function blankLease() {
+export function blankTenant() {
   return {
     uuid: UUID.create().toString(),
     dateTime: '2016-06-06',
@@ -47,9 +47,9 @@ export function blankLease() {
 }
       
 // reducers
-export const lease = (state, action) => {
+export const tenant = (state, action) => {
   switch (action.type) {
-    case 'CREATE_LEASE':
+    case 'CREATE_TENANT':
       return {
         uuid: UUID.create().toString(),
         dateTime: action.payload.dateTime,
@@ -75,16 +75,16 @@ export const lease = (state, action) => {
         phoneNumber: action.payload
       })
     default:
-      return blankLease();
+      return blankTenant();
   }
 }
     
-export const leases = (state = [], action) => {
+export const tenants = (state = [], action) => {
   switch (action.type) {
-    case 'CREATE_LEASE':
+    case 'CREATE_TENANT':
       return [
         ...state,
-        lease(undefined, action)
+        tenant(undefined, action)
       ];
     default:
       return state;
