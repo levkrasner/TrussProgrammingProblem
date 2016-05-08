@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { LeaseFormConnector } from './form/LeaseForm';
-import { LeaseTable } from './table/LeaseTable';
+import { LeaseFormConnector } from './form/TenantFormConnector';
+import { LeaseTable } from './table/TenantTable';
 
 import { createLease, leases } from './Lease';
 
