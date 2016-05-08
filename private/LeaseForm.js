@@ -24,16 +24,12 @@ export const LeaseForm = connect(
   mapDispatchToProps
 )(TenantForm);
 
-
 export class LeaseFormConnector extends React.Component {
-  // prop dispatch
-  // must pass TennantForm dispatch to create a new lease
-  // must also send 
   constructor(props) {
     super(props);
     this.handleSave = this.handleSave.bind(this);
     // create initial leaseStore
-    this.state = { leaseStore: createStore(lease) }
+    this.state = { leaseStore: createStore(lease) };
   }
   
   handleSave(event) {

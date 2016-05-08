@@ -85,8 +85,8 @@ export const leases = (state = [], action) => {
       return [
         ...state,
         lease(undefined, action)
-      ]
+      ];
     default:
-      return state
+      return state;
   }
 }
