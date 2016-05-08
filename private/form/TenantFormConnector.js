@@ -2,7 +2,8 @@ import React from 'react'
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-import { createTenant, tenant, setDateTime, setName, setAddress, setPhoneNumber } from '../models/Tenant';
+import { setDateTime, setName, setAddress, setPhoneNumber, addTenant } from '../models/actionCreators';
+import { tenant } from '../models/Tenant';
 import { TenantForm } from './TenantForm';
 
 function mapStateToProps(state) {
@@ -35,7 +36,7 @@ export class TenantFormConnector extends React.Component {
   handleSave(event) {
     event.preventDefault();
     // dispatch this tenant in to the tenantsStore (the list of tenants)
-    this.props.dispatch(createTenant(this.state.tenantStore.getState()));
+    this.props.dispatch(addTenant(this.state.tenantStore.getState()));
     // save a new store
     this.setState({ tenantStore: createStore(tenant) });
   }

@@ -1,37 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import { TenantFormConnector } from './form/TenantFormConnector';
 import { TenantTable } from './table/TenantTable';
+import { tenants } from './models/Tenant';
 
-import { createTenant, tenants } from './models/Tenant';
+import { prePopulate } from './sampleData';
 
 const tenantStore = createStore(tenants);
 
-// prepopulate the table
-const sampleData = [
-  { name: 'Griffin Smith', address: 'Somewhere', phoneNumber: '555-463-3511', dateTime: '2016-06-06', },
-  { name: 'Joe Smith', address: 'Somewhere else', phoneNumber: '555-468-1111', dateTime: '2016-07-01', },
-  { name: 'Amy Smith', address: 'No where', phoneNumber: '555-418-3213', dateTime: '2016-07-18', },
-];
-sampleData.forEach(
-  (datum) => tenantStore.dispatch(createTenant(datum))
-);
-
+prePopulate(tenantStore.dispatch);
 
 ReactDOM.render(
   <div style={{ padding: '10px' }}>
-    <h2>A Tenant Tracking Form!</h2>
 
+    <h2>A Tenant Tracking Form!</h2>
     <TenantFormConnector dispatch={tenantStore.dispatch} />
 
     <h2>A Table of Tenants!</h2>
+
     <Provider store={tenantStore}>
       <TenantTable />
     </Provider>
+
   </div>,
   document.getElementById('react-root')
 );
