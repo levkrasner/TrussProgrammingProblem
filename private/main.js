@@ -28,7 +28,7 @@ ReactDOM.render(
 
     <TenantFormConnector dispatch={tenantStore.dispatch} />
 
-    <h2>A Table of Tenant!</h2>
+    <h2>A Table of Tenants!</h2>
     <Provider store={tenantStore}>
       <TenantTable />
     </Provider>

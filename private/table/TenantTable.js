@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Well, } from 'react-bootstrap';
 import { Table, Tr } from 'Reactable';
 
-class LeaseTableUnconnected extends React.Component {
+class TenantTableUnconnected extends React.Component {
   render() {
     return (
       <Well>
@@ -20,12 +20,12 @@ class LeaseTableUnconnected extends React.Component {
 
 function mapStateToProps(state)  {
   return {
-    data: state.map(function(leaseObj) {
+    data: state.map(function(tenantObj) {
       return {
-        'Name': leaseObj.name,
-        Address: leaseObj.address,
-        'Phone Number': leaseObj.phoneNumber,
-        'Move In Date': leaseObj.dateTime
+        'Name': tenantObj.name,
+        Address: tenantObj.address,
+        'Phone Number': tenantObj.phoneNumber,
+        'Move In Date': tenantObj.dateTime
       };
     }),
   };
@@ -36,7 +36,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // Connected Component:
-export const LeaseTable = connect(
+export const TenantTable = connect(
   mapStateToProps,
   mapDispatchToProps
-)(LeaseTableUnconnected);
+)(TenantTableUnconnected);

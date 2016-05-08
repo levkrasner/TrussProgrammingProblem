@@ -2,7 +2,7 @@ import React from 'react'
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-import { createLease, lease, setDateTime, setName, setAddress, setPhoneNumber } from '../Lease';
+import { createTenant, tenant, setDateTime, setName, setAddress, setPhoneNumber } from '../Tenant';
 import { TenantForm } from './TenantForm';
 
 function mapStateToProps(state) {
@@ -10,40 +10,40 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // the dispatcher of a single lease store
+  // the dispatcher of a single tenant store
   return {
-    handleDateChange: (dateTime) =>dispatch(setDateTime(dateTime)),
+    handleDateChange: (dateTime) => dispatch(setDateTime(dateTime)),
     handleNameChange: (event) => dispatch(setName(event.target.value)),
     handleAddressChange: (event) => dispatch(setAddress(event.target.value)),
     handlePhoneNumberChange: (event) => dispatch(setPhoneNumber(event.target.value)),
   };
 }
 
-export const LeaseForm = connect(
+export const ConnectedTenantForm = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TenantForm);
 
-export class LeaseFormConnector extends React.Component {
+export class TenantFormConnector extends React.Component {
   constructor(props) {
     super(props);
     this.handleSave = this.handleSave.bind(this);
-    // create initial leaseStore
-    this.state = { leaseStore: createStore(lease) };
+    // create initial tenantStore
+    this.state = { tenantStore: createStore(tenant) };
   }
   
   handleSave(event) {
     event.preventDefault();
-    // dispatch this lease in to the leasesStore (the list of leases)
-    this.props.dispatch(createLease(this.state.leaseStore.getState()));
+    // dispatch this tenant in to the tenantsStore (the list of tenants)
+    this.props.dispatch(createTenant(this.state.tenantStore.getState()));
     // save a new store
-    this.setState({ leaseStore: createStore(lease) });
+    this.setState({ tenantStore: createStore(tenant) });
   }
   
   render() {
     return (
-      <Provider store={this.state.leaseStore}>
-        <LeaseForm handleSave={this.handleSave} />
+      <Provider store={this.state.tenantStore}>
+        <ConnectedTenantForm handleSave={this.handleSave} />
       </Provider>
     )
   }
