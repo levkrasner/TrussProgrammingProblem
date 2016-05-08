@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { LeaseFormConnector } from './form/TenantFormConnector';
-import { LeaseTable } from './table/TenantTable';
+import { TenantFormConnector } from './form/TenantFormConnector';
+import { TenantTable } from './table/TenantTable';
 
-import { createLease, leases } from './Lease';
+import { createTenant, tenants } from './Tenant';
 
-const leaseStore = createStore(leases);
+const tenantStore = createStore(tenants);
 
 // prepopulate the table
 const sampleData = [
@@ -18,19 +18,19 @@ const sampleData = [
   { name: 'Amy Smith', address: 'No where', phoneNumber: '555-418-3213', dateTime: '2016-07-18', },
 ];
 sampleData.forEach(
-  (datum) => leaseStore.dispatch(createLease(datum))
+  (datum) => tenantStore.dispatch(createTenant(datum))
 );
 
 
 ReactDOM.render(
   <div style={{ padding: '10px' }}>
-    <h2>A Lease Tracking Form!</h2>
+    <h2>A Tenant Tracking Form!</h2>
 
-    <LeaseFormConnector dispatch={leaseStore.dispatch} />
+    <TenantFormConnector dispatch={tenantStore.dispatch} />
 
-    <h2>A Table of Leases!</h2>
-    <Provider store={leaseStore}>
-      <LeaseTable />
+    <h2>A Table of Tenant!</h2>
+    <Provider store={tenantStore}>
+      <TenantTable />
     </Provider>
   </div>,
   document.getElementById('react-root')
