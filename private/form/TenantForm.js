@@ -4,8 +4,6 @@ import { Grid, Row, Col, Button, Well, } from 'react-bootstrap';
 import { TenantTextField } from './TenantTextField';
 import { MoveInDateField } from './MoveInDateField';
 
-import { createLease, setDateTime, setName, setAddress, setPhoneNumber, } from './Lease';
-
 export const TenantForm = React.createClass({
   render() {
     const { dateTime, name, address, phoneNumber, } = this.props;
