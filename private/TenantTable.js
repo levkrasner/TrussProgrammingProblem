@@ -24,7 +24,7 @@ class TenantTableUnconnected extends React.Component {
 
 function mapStateToProps(state)  {
   return {
-    data: state.map(function(tenantObj) {
+    data: state.tenantList.map(function(tenantObj) {
       return {
         'Name': tenantObj.name,
         'Address': tenantObj.address,

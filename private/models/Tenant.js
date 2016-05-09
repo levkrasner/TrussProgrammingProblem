@@ -11,7 +11,7 @@ function emptyTenant() {
   };
 }
       
-// reducer
+// Reducer
 export const tenant = (state, action) => {
   switch (action.type) {
     // Setters

@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col, Button, Well, Collapse } from 'react-bootstrap';
 
-import { setName, setAddress, setPhoneNumber, addTenant, setDateTime, blankTenant } from '../models/Tenant';
+import { setName, setAddress, setPhoneNumber, setDateTime, blankTenant } from '../models/Tenant';
+import { addTenant } from '../models/TenantList';
 
 import { TenantTextField } from './TenantTextField';
 import { MoveInDateField } from './MoveInDateField';
@@ -85,7 +86,7 @@ class unconnectedTenantForm extends React.Component {
 
 
 function mapStateToProps(state) {
-  return { tenant: state };
+  return { tenant: state.tenant };
 }
 function mapDispatchToProps(dispatch) {
   // the dispatcher of a single tenant store
@@ -94,6 +95,7 @@ function mapDispatchToProps(dispatch) {
     handleNameChange: (event) => dispatch(setName(event.target.value)),
     handleAddressChange: (event) => dispatch(setAddress(event.target.value)),
     handlePhoneNumberChange: (event) => dispatch(setPhoneNumber(event.target.value)),
+    saveTenantToTable: (tenant) => dispatch(addTenant(tenant)),
     blankTenant: () => dispatch(blankTenant()),
   };
 }
