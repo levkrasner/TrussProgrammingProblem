@@ -13,22 +13,22 @@ export function removeTenant(index) {
     payload: index,
   };
 }
- 
+
 // Reducer
 export const tenantList = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TENANT':
       return [
         ...state,
-        action.payload
+        action.payload,
       ];
     case 'REMOVE_TENANT':
       return [
-        ...state.slice(0, index),
-        ...state.slice(index + 1)
+        ...state.slice(0, action.payload),
+        ...state.slice(action.payload + 1),
       ];
     default:
       return state;
   }
-}
+};
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, FormControl, ControlLabel, HelpBlock, Grid, Row, Col } from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel, HelpBlock, Row, Col, } from 'react-bootstrap';
 
 
 export function TenantTextField(props) {
@@ -10,17 +10,16 @@ export function TenantTextField(props) {
   /* <FormControl.Feedback /> */
   /* <HelpBlock>Validation is based on string length.</HelpBlock> */
 
-
   const { placeholder, onChange, labelText, value, controlId, } = props;
-  
+
   return (
     <Row>
       <FormGroup controlId={controlId}>
-        <Col xs={12} sm={2} componentClass='ControlLabel'>{labelText}</Col>
+        <Col xs={12} sm={2} componentClass="ControlLabel">{labelText}</Col>
         <Col xs={12} sm={10}>
           <FormControl
             type="text"
-            placeholder={placeholder ? placeholder : `Enter ${labelText}`}
+            placeholder={placeholder || `Enter ${labelText}`}
             value={value}
             onChange={onChange}
           />

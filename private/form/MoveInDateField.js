@@ -4,17 +4,16 @@ import { FormGroup, ControlLabel, Row, Col, } from 'react-bootstrap';
 
 
 export function MoveInDateField(props) {
-
   const { dateTime, onChange, } = props;
 
-  const format = "YYYY-MM-DD";
-  const inputFormat = "MM/DD/YYYY";
-  const viewMode = "date";
-  
+  const format = 'YYYY-MM-DD';
+  const inputFormat = 'MM/DD/YYYY';
+  const viewMode = 'date';
+
   return (
     <Row>
       <FormGroup controlId="moveInDate">
-        <Col xs={12} sm={2} componentClass='ControlLabel'>Move in Date</Col>
+        <Col xs={12} sm={2} componentClass="ControlLabel">Move in Date</Col>
         <Col xs={12} sm={10}>
           <DateTimeField
             dateTime={dateTime}

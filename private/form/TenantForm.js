@@ -1,13 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Grid, Row, Col, Button, Well, Collapse } from 'react-bootstrap';
+import { connect, } from 'react-redux';
+import { Grid, Row, Col, Button, Well, Collapse, } from 'react-bootstrap';
 
-import { setName, setAddress, setPhoneNumber, setDateTime, blankTenant } from '../models/Tenant';
-import { addTenant } from '../models/TenantList';
+import { setName, setAddress, setPhoneNumber, setDateTime, blankTenant, } from '../models/Tenant';
+import { addTenant, } from '../models/TenantList';
 
-import { TenantTextField } from './TenantTextField';
-import { MoveInDateField } from './MoveInDateField';
-
+import { TenantTextField, } from './TenantTextField';
+import { MoveInDateField, } from './MoveInDateField';
 
 
 class unconnectedTenantForm extends React.Component {
@@ -17,7 +16,7 @@ class unconnectedTenantForm extends React.Component {
     this.newTenant = this.newTenant.bind(this);
     this.saveTenant = this.saveTenant.bind(this);
 
-    this.state = { open: false };
+    this.state = { open: false, };
   }
 
   newTenant() {
@@ -42,28 +41,28 @@ class unconnectedTenantForm extends React.Component {
   render() {
     const { name, address, phoneNumber, dateTime, } = this.props.tenant;
     const { handleNameChange, handleAddressChange, handlePhoneNumberChange, handleDateChange, } = this.props;
-    const { open } = this.state;
+    const { open, } = this.state;
 
     return (
       <Well>
-        <Grid fluid componentClass='form'>
+        <Grid fluid componentClass="form">
           <Collapse in={open}>
             <div>
-              <TenantTextField 
+              <TenantTextField
                 onChange={handleNameChange}
-                labelText={'Tenant Name'}
+                labelText={"Tenant Name"}
                 value={name}
-                controlId={'name'}
+                controlId={"name"}
               />
 
-              <TenantTextField 
+              <TenantTextField
                 onChange={handleAddressChange}
                 labelText={'Tenant Address'}
                 value={address}
                 controlId={'address'}
               />
 
-              <TenantTextField 
+              <TenantTextField
                 onChange={handlePhoneNumberChange}
                 labelText={'Tenant Phone Number'}
                 value={phoneNumber}
@@ -82,11 +81,11 @@ class unconnectedTenantForm extends React.Component {
       </Well>
     );
   }
-};
+}
 
 
 function mapStateToProps(state) {
-  return { tenant: state.tenant };
+  return { tenant: state.tenant, };
 }
 function mapDispatchToProps(dispatch) {
   // the dispatcher of a single tenant store
