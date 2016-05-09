@@ -1,4 +1,5 @@
 
+// Action Creators
 export function addTenant(tenant) {
   return {
     type: 'ADD_TENANT',
@@ -13,7 +14,8 @@ export function removeTenant(index) {
   };
 }
  
-export const tenants = (state = [], action) => {
+// Reducer
+export const tenantList = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TENANT':
       return [
