@@ -4,7 +4,7 @@ import { createStore, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
 import { TenantForm } from './form/TenantForm';
-import { TenantTable } from './table/TenantTable';
+import { TenantTable } from './TenantTable';
 import { tenants, addTenant } from './models/Tenants';
 import { tenant, setTenant } from './models/Tenant';
 
